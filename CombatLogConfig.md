@@ -1,0 +1,77 @@
+# CombatLog Configuration
+With the newest update, the old config.yml and messages.properties were removed and merged into one file: combatlog.yml
+
+Default values of the new config file.
+```YAML
+############################################################
+# +-------- Designed and Developed by JackProehl --------+ #
+# |---------- Updated and Managed by iiSnipez -----------| #
+# |---- Consider donating to Jack: JohnProehl@me.com ----| #
+# +-- Consider donating to iiSnipez: paypal.me/Jarod05 --+ #
+############################################################
+
+# Please open a ticket to report all bugs and glitches on BukkitDev.
+
+UpdateCheck: true
+AutoDownload: false
+Metrics: true
+
+# Send a MOTD to players on login
+MOTD: true
+
+# Set Broadcast to true to broadcast when a player CombatLogs.
+Broadcast: true
+
+Tag-Duration: 10
+Block-Teleportation: true
+Block-Enderpearls: false
+
+# Add modes you want removed during Combat under Remove-Modes.
+# Available Modes: fly, disguise.
+Remove-Modes:
+- fly
+- disguise
+
+# Set onKick to true to remove CombatTags when players are kicked.
+# Set onLagout to true to remove CombatTags when players lag out.
+Remove-Tag-On-Kick: false
+Remove-Tag-On-Lagout: false
+
+# To block all commands, add '*' under Commands
+Block-Commands: true
+Commands:
+  - home
+  - spawn
+  - tpa
+  - tpaccept
+  - tpahere
+  - warp
+  - fly
+  - disguise
+  
+# Kill players when they CombatLog.
+Kill: true
+
+Disabled-Worlds:
+  - world_custom
+
+############################################################
+# +------------------------------------------------------+ #
+# |                       Messages                       | #
+# +------------------------------------------------------+ #
+############################################################
+
+# TO DISABLE A MESSAGE, SET IT AS 'false'!
+UpdateCheckMessage: '&8[&4CombatLog&8]&c CombatLog update available! Use &f/cl update &cto download the update.'
+MOTDMessage: '&8[&4CombatLog&8]&7 Combat protection system initalized. Engineered by JackProehl and iiSnipez.'
+BroadcastMessage: '&8[&4CombatLog&8]&c <name> &7logged out while in combat!'
+TaggerMessage: '&8[&4CombatLog&8]&7 You have combat tagged &c<name>&7. Do not logout!'
+TaggedMessage: '&8[&4CombatLog&8]&7 You have been combat tagged by &c<name>&7. Do not logout!'
+UntagMessage: '&8[&4CombatLog&8]&7 You are no longer in combat. You may logout.'
+InCombatMessage: '&8[&4CombatLog&8]&7 You are tagged for &c<time> &7more seconds.'
+NotInCombatMessage: '&8[&4CombatLog&8]&7 You are not in Combat.'
+RemoveModesMessage: '&8[&4CombatLog&8]&c Your <mode> has been removed.'
+BlockCommandsMessage: '&8[&4CombatLog&8]&c That command is blocked during Combat.'
+BlockTeleportationMessage: '&8[&4CombatLog&8]&c You cannot teleport while in Combat.'
+KillMessage: '&8[&4CombatLog&8]&c You were killed for CombatLogging!'
+```
