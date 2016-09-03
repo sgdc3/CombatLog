@@ -20,7 +20,7 @@ public class PlayerDisguiseListener implements Listener{
 	public void onPlayerDisguise(DisguiseEvent event){
 		if(event.getEntity() instanceof Player){
 			Player player = (Player) event.getEntity();
-			if(plugin.removeDisguiseEnabled && plugin.taggedPlayers.containsKey(player.getName())){
+			if(plugin.usesLibsDisguise && plugin.removeDisguiseEnabled && plugin.taggedPlayers.containsKey(player.getName())){
 				DisguiseAPI.undisguiseToAll(player);
 				event.setCancelled(true);
 			}

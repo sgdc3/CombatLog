@@ -34,7 +34,6 @@ import me.iiSnipez.CombatLog.Listeners.PlayerTeleportListener;
 import me.iiSnipez.CombatLog.Listeners.PlayerToggleFlightListener;
 import me.libraryaddict.disguise.DisguiseAPI;
 
-
 public class CombatLog extends JavaPlugin {
 
 	public Logger log = Logger.getLogger("Minecraft");
@@ -54,6 +53,7 @@ public class CombatLog extends JavaPlugin {
 	public boolean removeDisguiseEnabled = false;
 	public boolean removeTagOnKick = false;
 	public boolean removeTagOnLagout = false;
+	public boolean removeInvisPotion = false;
 	public boolean blockCommandsEnabled = false;
 	public List<String> blockCommandNames = new ArrayList<String>();
 	public boolean blockTeleportationEnabled = false;
@@ -78,6 +78,8 @@ public class CombatLog extends JavaPlugin {
 	public boolean notInCombatMessageEnabled = false;
 	public String removeModesMessage = "";
 	public boolean removeModesMessageEnabled = false;
+	public String removeInvisMessage = "";
+	public boolean removeInvisMessageEnabled = false;
 	public String blockCommandsMessage = "";
 	public boolean blockCommandsMessageEnabled = false;
 	public String blockTeleportationMessage = "";
@@ -86,6 +88,9 @@ public class CombatLog extends JavaPlugin {
 	public boolean killMessageEnabled = false;
 	public HashMap<String, Long> taggedPlayers = new HashMap<String, Long>();
 	public ArrayList<String> killPlayers = new ArrayList<String>();
+	public boolean useNewFaction = false;
+	public boolean useOldFaction = false;
+	public boolean useOldOldFaction = false;
 
 	public void onEnable() {
 		initiateVars();
@@ -95,7 +100,7 @@ public class CombatLog extends JavaPlugin {
 		initiateCmds();
 		LogHandler();
 		enableTimer();
-		if (getConfig().getBoolean("Metrics")) {
+		if (clConfig.getCLConfig().getBoolean("Metrics")) {
 			startMetrics();
 		}
 		checkForPlugins();
@@ -157,6 +162,16 @@ public class CombatLog extends JavaPlugin {
 		} else {
 			logInfo("[CombatLog] Factions plugin found! Safezone untagging will work.");
 			usesFactions = true;
+			String version = getServer().getPluginManager().getPlugin("Factions").getDescription().getVersion();
+			if (version.substring(0, 3).equalsIgnoreCase("2.7") || version.substring(0, 3).equalsIgnoreCase("2.8")
+					|| version.substring(0, 3).equalsIgnoreCase("2.9")) {
+				useNewFaction = true;
+			} else {
+				useOldFaction = true;
+			}
+			if (version.substring(0, 1).equalsIgnoreCase("1")) {
+				useOldOldFaction = true;
+			}
 		}
 	}
 
@@ -244,7 +259,7 @@ public class CombatLog extends JavaPlugin {
 	}
 
 	public void removeDisguise(Player player) {
-		if (DisguiseAPI.isDisguised(player) && removeDisguiseEnabled) {
+		if (usesLibsDisguise && removeDisguiseEnabled && DisguiseAPI.isDisguised(player)) {
 			DisguiseAPI.undisguiseToAll(player);
 			if (removeModesMessageEnabled) {
 				player.sendMessage(translateText(removeModesMessage.replaceAll("<mode>", "disguise")));
@@ -261,7 +276,7 @@ public class CombatLog extends JavaPlugin {
 			}
 		}
 	}
-	
+
 	public long getCurrentTime() {
 		return System.currentTimeMillis() / 1000L;
 	}

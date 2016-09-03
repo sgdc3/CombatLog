@@ -34,7 +34,7 @@ public class PlayerCombatLogEvent extends Event implements Cancellable {
 		return player;
 	}
 
-	public long getTagTimeRemainging() {
+	public long getTagTimeRemaining() {
 		return (plugin.tagDuration
 				- (plugin.getCurrentTime() - (Long) plugin.taggedPlayers.get(player.getName()).longValue()));
 	}

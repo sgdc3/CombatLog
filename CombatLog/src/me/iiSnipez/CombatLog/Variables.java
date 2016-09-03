@@ -24,6 +24,7 @@ public class Variables {
 		}
 		plugin.removeTagOnKick = plugin.clConfig.getCLConfig().getBoolean("Remove-Tag-On-Kick");
 		plugin.removeTagOnLagout = plugin.clConfig.getCLConfig().getBoolean("Remove-Tag-On-Lagout");
+		plugin.removeInvisPotion = plugin.clConfig.getCLConfig().getBoolean("Remove-Invis-Potion");
 		plugin.blockCommandsEnabled = plugin.clConfig.getCLConfig().getBoolean("Block-Commands");
 		plugin.blockCommandNames = plugin.clConfig.getCLConfig().getStringList("Commands");
 		plugin.blockTeleportationEnabled = plugin.clConfig.getCLConfig().getBoolean("Block-Teleportation");
@@ -66,6 +67,10 @@ public class Variables {
 		plugin.removeModesMessage = plugin.clConfig.getCLConfig().getString("RemoveModesMessage");
 		if (!plugin.removeModesMessage.equalsIgnoreCase("false")) {
 			plugin.removeModesMessageEnabled = true;
+		}
+		plugin.removeInvisMessage = plugin.clConfig.getCLConfig().getString("RemoveInvisMessage");
+		if (!plugin.removeInvisMessage.equalsIgnoreCase("false")) {
+			plugin.removeInvisMessageEnabled = true;
 		}
 		plugin.blockCommandsMessage = plugin.clConfig.getCLConfig().getString("BlockCommandsMessage");
 		if (!plugin.blockCommandsMessage.equalsIgnoreCase("false")) {

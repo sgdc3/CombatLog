@@ -21,6 +21,9 @@ public class PlayerDeathListener implements Listener {
 		if(plugin.taggedPlayers.containsKey(player.getName())){
 			plugin.taggedPlayers.remove(player.getName());
 		}
+		if(plugin.killPlayers.contains(player.getUniqueId().toString())){
+			plugin.killPlayers.remove(player.getUniqueId().toString());
+		}
 	}
 
 }

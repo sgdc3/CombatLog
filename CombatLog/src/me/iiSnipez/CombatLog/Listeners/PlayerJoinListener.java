@@ -26,7 +26,9 @@ public class PlayerJoinListener implements Listener {
 		if(plugin.MOTDEnabled && plugin.MOTDMessageEnabled){
 			player.sendMessage(plugin.translateText(plugin.MOTDMessage));
 		}
-		if(plugin.killMessageEnabled && plugin.killPlayers.contains(player.getUniqueId().toString()))
+		if(plugin.killMessageEnabled && plugin.killPlayers.contains(player.getUniqueId().toString())){
 			player.sendMessage(plugin.translateText(plugin.killMessage));
+			plugin.killPlayers.remove(player.getUniqueId().toString());
+		}
 	}
 }

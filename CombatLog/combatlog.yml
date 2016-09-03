@@ -20,6 +20,7 @@ Broadcast: true
 Tag-Duration: 10
 Block-Teleportation: true
 Block-Enderpearls: false
+Remove-Invis-Potion: true
 
 # Add modes you want removed during Combat under Remove-Modes.
 # Available Modes: fly, disguise.
@@ -66,6 +67,7 @@ UntagMessage: '&8[&4CombatLog&8]&7 You are no longer in combat. You may logout.'
 InCombatMessage: '&8[&4CombatLog&8]&7 You are tagged for &c<time> &7more seconds.'
 NotInCombatMessage: '&8[&4CombatLog&8]&7 You are not in Combat.'
 RemoveModesMessage: '&8[&4CombatLog&8]&c Your <mode> has been removed.'
+RemoveInvisMessage: '&8[&4CombatLog&8]&c Your invisibility potion was removed!'
 BlockCommandsMessage: '&8[&4CombatLog&8]&c That command is blocked during Combat.'
 BlockTeleportationMessage: '&8[&4CombatLog&8]&c You cannot teleport while in Combat.'
 KillMessage: '&8[&4CombatLog&8]&c You were killed for CombatLogging!'

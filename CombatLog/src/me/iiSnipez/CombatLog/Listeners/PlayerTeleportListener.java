@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerTeleportEvent;
+
 import me.iiSnipez.CombatLog.CombatLog;
 
 public class PlayerTeleportListener implements Listener {
